@@ -24,16 +24,19 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
-const validateCred = (num) => {
-	let arr = (num + '').split('').reverse().map(x => parseInt(x));
+const validateCred = (card) => {
+	let arr = card.slice().reverse();
+	console.log(arr);
 	let lastDigit = arr.splice(0, 1)[0];
+	console.log(lastDigit);
 	let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+	console.log(sum);
 	sum += lastDigit;
 	return sum % 10 === 0;
 };
 
-console.log(validateCred('4485275742308327'));
-console.log('hello world');
+console.log(validateCred(invalid1));
+
 
 
 
