@@ -22,11 +22,6 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
-//An arry for invalid credit card numbers
-const invalidCards = [];
-
-//An arry for credit card companies with invalid card numbers
-const invalidCardCompanies = [];
 
 // Add your functions below:
 const validateCred = (arr) => {
@@ -47,6 +42,7 @@ const validateCred = (arr) => {
 };
 
 const findInvalidCards = (batchArr) => {
+  const invalidCards = [];
   for (let i = 0; i < batchArr.length; i++) {
     let card = batchArr[i];
     if (!validateCred(card)) {
@@ -56,12 +52,45 @@ const findInvalidCards = (batchArr) => {
   return invalidCards;
 }
 
-//const idInvalidCardCompanies = () => {}
+const idInvalidCardCompanies = (invalidArr) => {
+  const id = [];
+  for (let i = 0; i < invalidArr.length; i++) {
+    let numCheck = invalidArr[0];
+    if (numCheck === 3) {
+      if (id.indexOf('Amex') === -1) {
+        id.push('Amex');
+      }
+    } else if (numCheck === 4) {
+        if (id.indexOf('Visa') === -1) {
+          id.push('Visa');
+        }
+    } else if (numCheck === 5) {
+        if (id.indexOf('Mastercard') === -1) {
+          id.push('Mastercard');
+        }
+    } else if (numCheck === 6) {
+        if (id.indexOf('Discover') === -1) {
+          id.push('Discover');
+        }
+    } else {
+        if (id.indexOf('Company not found') === -1) {
+          id.push('Company not found'); 
+        }
+    }
+  }
+  return removeDuplicate(id);
+}
 
 console.log(validateCred(valid1));
 console.log(validateCred(invalid1));
 
-console.log(findInvalidCards(batch));
+//console.log(findInvalidCards(batch));
+
+console.log(idInvalidCardCompanies(invalid1)); 
+console.log(idInvalidCardCompanies(invalid2));
+console.log(idInvalidCardCompanies(invalid3));
+console.log(idInvalidCardCompanies(invalid4));
+console.log(idInvalidCardCompanies(invalid5));
 
 //console.log(validateCred(mystery1));
 //console.log(validateCred(mystery2));
