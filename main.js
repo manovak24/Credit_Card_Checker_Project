@@ -55,27 +55,21 @@ const findInvalidCards = (batchArr) => {
 const idInvalidCardCompanies = (invalidArr) => {
   const id = [];
   for (let i = 0; i < invalidArr.length; i++) {
-    let numCheck = invalidArr[0];
+    let numCheck = invalidArr[i][0];
     if (numCheck === 3) {
-      if (id.indexOf('Amex') === -1) {
-        id.push('Amex');
-      }
+      id.push('Amex');
     } else if (numCheck === 4) {
-        if (id.indexOf('Visa') === -1) {
-          id.push('Visa');
-        }
+      id.push('Visa');
     } else if (numCheck === 5) {
-        if (id.indexOf('Mastercard') === -1) {
-          id.push('Mastercard');
-        }
-    } else if (numCheck === 6) {
-        if (id.indexOf('Discover') === -1) {
-          id.push('Discover');
-        }
+      id.push('Mastercard');
+      //leaving off here. Need to figure out how to push to array but no duplicate
+      //Maybe create function to remove duplicates and then add to the retun statement for id
+    } else if (numCheck === 6 && id.indexOf('Discover') === -1) {
+      id.push('Discover');
     } else {
-        if (id.indexOf('Company not found') === -1) {
-          id.push('Company not found'); 
-        }
+      if (id.indexOf('Company not found') === -1) {
+        id.push('Company not found');
+      }
     }
   }
   return id;
@@ -84,13 +78,9 @@ const idInvalidCardCompanies = (invalidArr) => {
 console.log(validateCred(valid1));
 console.log(validateCred(invalid1));
 
-//console.log(findInvalidCards(batch));
+console.log(findInvalidCards(batch));
 
-console.log(idInvalidCardCompanies(invalid1)); 
-console.log(idInvalidCardCompanies(invalid2));
-console.log(idInvalidCardCompanies(invalid3));
-console.log(idInvalidCardCompanies(invalid4));
-console.log(idInvalidCardCompanies(invalid5));
+console.log(idInvalidCardCompanies(findInvalidCards(batch))); 
 
 //console.log(validateCred(mystery1));
 //console.log(validateCred(mystery2));
