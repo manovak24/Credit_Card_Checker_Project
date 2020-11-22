@@ -78,7 +78,7 @@ const idInvalidCardCompanies = (invalidArr) => {
         }
     }
   }
-  return removeDuplicate(id);
+  return id;
 }
 
 console.log(validateCred(valid1));
