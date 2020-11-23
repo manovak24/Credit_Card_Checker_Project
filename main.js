@@ -56,11 +56,11 @@ const idInvalidCardCompanies = (invalidArr) => {
   const id = [];
   for (let i = 0; i < invalidArr.length; i++) {
     let numCheck = invalidArr[i][0];
-    if (numCheck === 3) {
+    if (numCheck === 3 && id.indexOf('Amex') === -1) {
       id.push('Amex');
-    } else if (numCheck === 4) {
+    } else if (numCheck === 4 && id.indexOf('Visa') === -1) {
       id.push('Visa');
-    } else if (numCheck === 5) {
+    } else if (numCheck === 5 && id.indexOf('Mastercard') === -1) {
       id.push('Mastercard');
       //leaving off here. Need to figure out how to push to array but no duplicate
       //Maybe create function to remove duplicates and then add to the retun statement for id
