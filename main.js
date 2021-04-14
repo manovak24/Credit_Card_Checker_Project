@@ -75,8 +75,8 @@ const idInvalidCardCompanies = (invalidArr) => {
   return id;
 }
 
-console.log(validateCred(valid1));
-console.log(validateCred(invalid1));
+//console.log(validateCred(valid1));
+//console.log(validateCred(invalid1));
 
 console.log(findInvalidCards(batch));
 
