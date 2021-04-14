@@ -15,5 +15,16 @@ const validateCred = (arr) => {
     }
 };
 
-const test = validateCred([4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8]);
+const str = '4539677908016808';
+console.log(str);
+const strToArr = str.split(',').map(function(item) {
+    return parseInt(item, 10);
+});
+console.log(strToArr);
+const test1 = validateCred(strToArr);
+console.log(test1);
+
+const card = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
+console.log(card);
+const test = validateCred(card);
 console.log(test);
