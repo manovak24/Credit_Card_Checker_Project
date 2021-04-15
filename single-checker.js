@@ -15,7 +15,8 @@ const validateCred = (arr) => {
     }
 };
 
-const str = '4539677908016808';
+let str = '4539677908016808';
+str = str.split('').join(', ');
 console.log(str);
 const strToArr = str.split(',').map(function(item) {
     return parseInt(item, 10);
